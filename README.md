@@ -2,9 +2,9 @@
 
 An exploration of COVID-19 data from January, 2020 to May, 2022.
 
-"Covid Data Exploration" shows SQL code used to explore the global death and infection rates rates.
+"COVID Data Exploration" shows SQL code used to explore the global death and infection rates rates.
 
-"Covid Data Visualization" shows SQL code used to gather data to visualize into a Tableau dashboard.
+"COVID Data Visualization" shows SQL code used to gather data to visualize into a Tableau dashboard.
 
 Data Source retrieved from https://ourworldindata.org/covid-deaths.
 
