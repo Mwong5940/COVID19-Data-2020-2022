@@ -1,0 +1,99 @@
+SELECT *
+FROM Covid.Deaths
+ORDER BY 
+  location,
+  date;
+  
+
+SELECT *
+FROM Covid.Vaccinations
+ORDER BY 
+  location,
+  date;
+
+--Return fields only interested in exploring.
+SELECT 
+  location,
+  date,
+  total_cases,
+  new_cases,
+  total_deaths,
+  population
+FROM Covid.Deaths
+ORDER BY
+  location,
+  date;
+
+--Looking at Total Cases vs Total Deaths, return the chance of dying if infected with COVID-19 in USA
+SELECT 
+  location,
+  date,
+  total_cases,
+  total_deaths, 
+  total_deaths/total_cases)*100 as DeathPercentage
+FROM Covid.Deaths
+WHERE 
+  location like '%states%'
+ORDER BY
+  location,
+  date;
+
+--Looking at total cases vs population, return the percentage of population got COVID-19 in USA
+SELECT 
+  location,
+  date,
+  population,
+  total_cases,
+  (total_cases/population)*100 as PercentofPopulationInfected
+FROM Covid.Deaths
+WHERE 
+  location like '%states%'
+ORDER BY
+  location,
+  date;
+
+--Return countries with highest infection rate compared to population
+SELECT 
+  location,
+  population,
+  MAX(total_cases) as HighestInfectionCount,
+  MAX((total_deaths/population))*100 as PercentofPopulationInfected
+FROM Covid.Deaths
+GROUP BY 
+  location,
+  population
+ORDER BY 
+  PercentofPopulationInfected desc
+
+--Return which countries had the highest death count per Population 
+SELECT 
+  location,
+  MAX(total_deaths) as TotalDeathCount
+FROM Covid.Deaths
+GROUP BY 
+  location
+ORDER BY 
+  TotalDeathCount desc
+
+--Return which conitnents had the highest death count per population
+SELECT 
+  continent, 
+  MAX(total_deaths) as TotalDeathCount
+FROM Covid.Deaths
+GROUP BY  
+  continent
+ORDER BY
+  TotalDeathCount desc
+
+--Return total global new cases, new deaths, and death percentage
+SELECT  
+  date, 
+  SUM(new_cases) as new_cases,
+  SUM(new_deaths) as new_deaths, 
+  (SUM(new_deaths)/SUM(new_cases))*100 --total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
+FROM Covid.Deaths
+GROUP BY  
+  date
+ORDER BY
+  location,
+  date;
