@@ -1,10 +1,11 @@
+--Return entire dataset from Covid.Deaths table
 SELECT *
 FROM Covid.Deaths
 ORDER BY 
   location,
   date;
   
-
+--Return entire dataset from Covid.Vaccinations table
 SELECT *
 FROM Covid.Vaccinations
 ORDER BY 
