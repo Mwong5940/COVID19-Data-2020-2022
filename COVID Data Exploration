@@ -63,7 +63,7 @@ GROUP BY
   location,
   population
 ORDER BY 
-  PercentofPopulationInfected desc
+  PercentofPopulationInfected DESC;
 
 --Return which countries had the highest death count per Population 
 SELECT 
@@ -73,7 +73,7 @@ FROM Covid.Deaths
 GROUP BY 
   location
 ORDER BY 
-  TotalDeathCount desc
+  TotalDeathCount DESC;
 
 --Return which conitnents had the highest death count per population
 SELECT 
@@ -83,7 +83,7 @@ FROM Covid.Deaths
 GROUP BY  
   continent
 ORDER BY
-  TotalDeathCount desc
+  TotalDeathCount DESC;
 
 --Return total global new cases, new deaths, and death percentage
 SELECT  
