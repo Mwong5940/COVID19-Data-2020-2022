@@ -1,4 +1,4 @@
--- Return COVID-19 rates
+--Return COVID-19 rates
 SELECT 
   SUM(new_cases) as total_cases,
   SUM(new_deaths) as total_deaths,
@@ -10,7 +10,8 @@ ORDER BY
   location,
   date;
 
--- Return Total Death Count by Continent
+
+--Return Total Death Count by Continent
 SELECT 
   continent, 
   SUM(new_deaths) as TotalDeathCount
@@ -21,7 +22,7 @@ ORDER BY
   TotalDeathCount DESC;
 
 
--- Return Population Infected by Country
+--Return Population Infected by Country
 SELECT 
   location, 
   population, 
@@ -35,7 +36,7 @@ ORDER BY
   PercentPopulationInfected DESC;
 
 
--- Return Percent of Population Infected
+--Return Percent of Population Infected
 SELECT 
   location,
   population, 
